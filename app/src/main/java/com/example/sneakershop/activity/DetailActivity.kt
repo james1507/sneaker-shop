@@ -55,10 +55,10 @@ class DetailActivity : BaseActivity() {
             sliderItems.add(SlideModel(imageUrl))
         }
         binding.slider.adapter = SliderAdapter(sliderItems, binding.slider)
-        binding.slider.clipToPadding = false
-        binding.slider.clipChildren = false
-        binding.slider.offscreenPageLimit = 3
-        binding.slider.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        binding.slider.clipToPadding = true
+        binding.slider.clipChildren = true
+        binding.slider.offscreenPageLimit = 1
+//        binding.slider.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
         if (sliderItems.size > 1) {
             binding.dotIndicator.visibility = View.VISIBLE
