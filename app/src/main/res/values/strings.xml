@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SneakerShop</string>
+    <string name="intro_title">Step into your <font color="#6033ba"> style \n A world of shoes </font></string>
+    <string name="intro_description">Browse the latest from top brands\nGet personalized recommendations\nEnjoy fast, free shipping</string>
+    <string name="text_button_intro">Let\'s Get Started</string>
+    <string name="intro_signin">Already have an account? <font color="#6033ba">Sign In</font></string>
+</resources>
