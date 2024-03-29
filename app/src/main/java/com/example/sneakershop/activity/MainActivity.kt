@@ -1,5 +1,6 @@
 package com.example.sneakershop.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -17,7 +18,7 @@ import com.example.sneakershop.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity() {
     private val viewModel = MainViewModel()
-    private  lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,18 @@ class MainActivity : BaseActivity() {
         initBanner()
         initBrand()
         initItemPopular()
+        initBottomMenu()
+    }
+
+    private fun initBottomMenu() {
+        binding.cartButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    CartActivity::class.java
+                )
+            )
+        }
     }
 
     private fun initBanner() {
@@ -51,7 +64,7 @@ class MainActivity : BaseActivity() {
 
         binding.viewpaperSlider.setPageTransformer(compositePageTransformer)
 
-        if(images.size > 1) {
+        if (images.size > 1) {
             binding.dotIndicator.visibility = View.VISIBLE
             binding.dotIndicator.attachTo(binding.viewpaperSlider)
         }
@@ -60,7 +73,8 @@ class MainActivity : BaseActivity() {
     private fun initBrand() {
         binding.progressBarBrand.visibility = View.VISIBLE
         viewModel.brands.observe(this, Observer {
-            binding.viewBrand.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            binding.viewBrand.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             binding.viewBrand.adapter = BrandAdapter(it)
             binding.progressBarBrand.visibility = View.GONE
         })
